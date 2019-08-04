@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Hawaian Blog</title>
+  <style type="text/css" href="./style.css"></style>
+
+  <!-- jQuery -->
+  <script
+  src="https://code.jquery.com/jquery-3.4.1.js"
+  integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+  crossorigin="anonymous"></script>
+
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+
+</head>
+<body>
+
+  <nav class="#f06292 pink lighten-2">
+    <div class="nav-wrapper">
+      <a href="/" class="brand-logo">MAHALO BLOG</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <% if user_signed_in? %>
+        <li><%= link_to  "マイページ", user_path(current_user) %></li>
+        <li><a href="/blogs/new/">投稿する</a></li>
+        <li><%= link_to "サインアウト", destroy_user_session_path, method: :delete %></li>
+        <% else %>
+        <li><%= link_to "ログイン", new_user_session_path, class: 'post' %></li>
+        <li><%= link_to "新規登録", new_user_registration_path, class: 'post' %></li>
+      </ul>
+      <% end %>
+    </div>
+  </nav>
+
+<div class="contents row">
+<% @blogs.each do |blog| %>
+    <%= render partial: "mypage", locals: { blog: blog  } %>
+    <% end %>
+</div> 
+  <%= paginate(@blogs) %>
+
+  <script type="text/javascript" src="./app.js"></script>
+</body>
+</html>

@@ -1,0 +1,17 @@
+     <div class="row">
+    <div class="col s12 m7">
+      <div class="card">
+        <div class="card-image">
+          <img src="<%= blog.image %>">
+        </div>
+        <div class="card-content">
+          <p><%= blog.text %></p>
+        </div>
+        <div class="card-action">
+          <% if user_signed_in? && current_user.id == blog.user_id %>
+          <a href="#"><%= link_to '削除', "/blogs/#{blog.id}", method: :delete %><%= link_to '編集', "/blogs/#{blog.id}/edit", method: :get %></a>
+         <% end %>
+        </div>
+      </div>       
+    </div>
+  </div>
