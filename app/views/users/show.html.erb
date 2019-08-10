@@ -35,6 +35,11 @@
     </div>
   </nav>
 
+<body background="https://i.pinimg.com/564x/27/d4/84/27d4845fa9213fbc1bf03137ba84a6b0.jpg">
+</body>
+<h5 style="color:pink;","display:flex;">ニックネーム：<%= current_user.nickname %>のマイページ</h5>
+
+
 <div class="contents row">
 <% @blogs.each do |blog| %>
     <%= render partial: "mypage", locals: { blog: blog  } %>

@@ -1,0 +1,21 @@
+          <%= form_for (@blog) do |f| %>
+          <div style="margin: 200px 50px 20px">
+          <div class="col-lg-6">
+          <h5 style="color:white;">ニックネーム</h5>
+          <h5 style="color:white;"><%= current_user.nickname %></h5>
+           <br> </br>
+           <div style="color:white;">ハワイの画像のURL</div>
+         <%= f.text_field :image, placeholder: '必ずハワイの画像のURLを貼ってね！', style: 'width: 100%; height: 20px;' %>
+        </div>
+         <br> </br>
+        <div style="color:white;">投稿内容</div>
+            <%= f.text_area :text, placeholder: 'ブログを書いてね！', style: 'width: 100%; height: 300px;' %>
+          </div>
+          <div class="row">
+            <div class="col10 push1">
+       <%= button_tag type: "patch", class: "btn btn--block" do %>
+          投稿する
+      <% end %>
+        </div>
+      </div>
+       <% end %>
