@@ -48,7 +48,7 @@ test:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
 production:
-  <<: *default
-  database: miniblog_production
-  username: miniblog
-  password: <%= ENV['MINIBLOG_DATABASE_PASSWORD'] %>
+ <<: *default
+ adapter: postgresql
+ encoding: unicode
+ pool: 5
